@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "malzeme_list <- function(){\n  # With this function, we produce the material list as data frame\n  mlz = data.frame() \n  mlz[1,1]=\"Gul\"\n  mlz[1,2]=TRUE\n  mlz[1,3]=TRUE\n  mlz[1,4]=TRUE\n  mlz[2,1]=\"Papatya\"\n  mlz[2,2]=TRUE\n  mlz[2,3]=FALSE\n  mlz[2,4]=TRUE\n  mlz[3,1]=\"Orkide\"\n  mlz[3,2]=TRUE\n  mlz[3,3]=FALSE\n  mlz[3,4]=FALSE\n  mlz[4,1]=\"Susleme\"\n  mlz[4,2]=FALSE\n  mlz[4,3]=FALSE\n  mlz[4,4]=TRUE\n  names(mlz) <- c(\"Malzeme\",\"Çicekli\",\"Dikenli\",\"Yapraklı\")\n  mlz\n}\nBuket_list <- function(){\n  # With this function, we produce the bouquet list as data frame\n  bkt=data.frame()\n  bkt[1,1]=\"Gul Bahcesi\"\n  bkt[2,1]=\"Gul Bahcesi\"\n  bkt[3,1]=\"Gul Bahcesi\"\n  bkt[4,1]=\"Gelinlikli Guller\"\n  bkt[5,1]=\"Gelinlikli Guller\"\n  bkt[6,1]=\"Gelinlikli Guller\"\n  bkt[7,1]=\"Orkide Buketi\"\n  bkt[8,1]=\"Orkide Buketi\"\n  bkt[9,1]=\"Orkide Buketi\"\n  bkt[1,2]=\"Kucuk\"\n  bkt[2,2]=\"Orta\"\n  bkt[3,2]= \"Buyuk\"\n  bkt[4,2]=\"Kucuk\"\n  bkt[5,2]=\"Orta\"\n  bkt[6,2]= \"Buyuk\"\n  bkt[7,2]=\"Kucuk\"\n  bkt[8,2]=\"Orta\"\n  bkt[9,2]= \"Buyuk\"\n  bkt[1,3]=\"10 adet gül + süslemeler \"\n  bkt[2,3]=\"25 adet gül + süslemeler \"\n  bkt[3,3]= \" 50 adet gül + süslemeler\"\n  bkt[4,3]=\"5 adet gül+ 20 adet papatya + süslemeler \"\n  bkt[5,3]=\"7 adet gül+ 20 adet papatya + süslemeler \"\n  bkt[6,3]= \"10 adet gül+ 20 adet papatya + süslemeler \"\n  bkt[7,3]=\" 1 orkide\"\n  bkt[8,3]=\"2 orkide \"\n  bkt[9,3]= \"5 orkide \"\n  bkt[1,4]=\"10\"\n  bkt[2,4]=\"15\"\n  bkt[3,4]= \"20\"\n  bkt[4,4]=\"12 \"\n  bkt[5,4]=\"16\"\n  bkt[6,4]= \"20\"\n  bkt[7,4]=\"20\"\n  bkt[8,4]=\"25\"\n  bkt[9,4]= \"30\"\n  names(bkt) <- c(\"Buket cesidi\",\"Boyut\",\"Icerik\",\"Fiyat(TL)\")\n  bkt\n}",
+    "created" : 1495814894227.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3778099669",
+    "id" : "1C7DCC81",
+    "lastKnownWriteTime" : 1495897396,
+    "last_content_update" : 1495897396283,
+    "path" : "~/demo_ciceksepeti/global.R",
+    "project_path" : "global.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

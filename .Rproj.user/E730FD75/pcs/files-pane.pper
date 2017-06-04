@@ -1,0 +1,9 @@
+{
+    "path" : "~/demo_ciceksepeti",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}

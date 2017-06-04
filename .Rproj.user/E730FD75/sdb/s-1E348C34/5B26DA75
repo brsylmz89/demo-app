@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "\n# This is the server logic for a Shiny web application.\n# You can find out more about building applications with Shiny here:\n#\n# http://shiny.rstudio.com\n#\n\nlibrary(shiny)\n\nshinyServer(function(input, output) {\n  MY = reactiveValues(order_list=NULL,buket_list=NULL) # these are interactive values \n  \n  output$Malzeme_table <- renderDataTable({ # Creating and showing Material list\n    mlz=malzeme_list()\n    mlz\n  })\n  \n  output$Buket_table <- renderDataTable({ # Showing Bouquet list\n    MY$buket_list\n })\n  \n observeEvent(input$sec,{ # Creating Bouquet list respect to Button for Bouquet options \n   if(input$sec==\"Show all bouquets\"){\n     MY$buket_list=Buket_list()\n   }\n})\n \nobserveEvent(input$Sipariset,{ # creating order list respect selected rows in Bouquet table\n   MY$order_list= MY$buket_list[input$Buket_table_rows_selected,]\n})\n\noutput$order <- renderTable({ # showing order list\n  if(is.null(MY$order_list))return()\n  MY$order_list\n  })\n\noutput$total <- renderText({ # calculating total price and printing as text\n  if(is.null(MY$order_list))return()\n  price_colmn= MY$order_list[,4]\n  tot= sum(as.numeric(price_colmn))\n  tot=as.character(tot)\n  txt= paste(\"Total amount to be paid\",tot,\"TL\")\n  txt\n  })\n\nobserve({ # Making Button of  making order  disable or not respect to Bouquet table\n    if (is.null(input$Buket_table_rows_selected)){\n       shinyjs::disable(\"Sipariset\")\n     } else {\n       shinyjs::enable(\"Sipariset\")\n     }\n   })\nobserveEvent(input$Yap,{ # Creating Bouquests  respect to Buttons and options such as size or daisy\n  buketlist=Buket_list()\n  \n  if(input$sus==\"No\"){\n    buketlist=buketlist[7:9,]\n  }else{\n    if(input$papat==TRUE){\n      buketlist=buketlist[4:6,]\n    }else{\n      buketlist=buketlist[1:3,]\n    }\n  }\n  \n  if(!is.null(input$boysecimi)){\n    lst= data.frame()\n    for(x in 1:NROW(buketlist)){\n       if(buketlist[x,2]%in%input$boysecimi){\n         lst=rbind.data.frame(lst,buketlist[x,])\n       }\n      \n     }\n    buketlist=lst\n  }\n  MY$buket_list=buketlist\n})\n\nobserve({ # Making Button of  saving order  disable or not respect to order list\n  if (is.null(MY$order_list)){\n    shinyjs::disable(\"downloadData\")\n  } else {\n    shinyjs::enable(\"downloadData\")\n  }\n})\n\noutput$downloadData <- downloadHandler(# save order as csv object\n  \n  filename = function() { \n    paste(input$text, '.csv', sep='') \n  },\n  content = function(file) {\n    write.csv(MY$order_list,file)\n  }\n)\n\nobserveEvent(input$cancel,{ # deleting order by making order list empty\n  MY$order_list=NULL\n})\n\n})\n",
+    "created" : 1495729575986.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4074410897",
+    "id" : "5B26DA75",
+    "lastKnownWriteTime" : 1495915148,
+    "last_content_update" : 1495915148606,
+    "path" : "~/demo_ciceksepeti/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
